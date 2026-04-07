@@ -43,20 +43,13 @@ module.exports = {
     compress: true,
     port: 9000,
     proxy: [
-      {
-        context: ['/api/knowledge-base'],
+        {
+        context: ['/api'], 
         target: 'https://flyhigh.pro',
         changeOrigin: true,
         secure: true,
-        pathRewrite: { '^/api/knowledge-base': '/rekrutacja/knowledge.json' }
-      },
-      {
-        context: ['/api/blog'],
-        target: 'https://flyhigh.pro',
-        changeOrigin: true,
-        secure: true,
-        pathRewrite: { '^/api/blog': '/rekrutacja/blog.json' } 
-      }
+        pathRewrite: { '^/api': '/rekrutacja' } 
+  }
     ]
   },
 };

@@ -27,8 +27,15 @@ tabs.forEach((tab) => {
   });
 });
 
+// Check localhost or production environment for API base URL
+const API_BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "/api" // Używa proxy z Webpacka
+    : "https://flyhigh.pro/rekrutacja"; // Bezpośredni adres na produkcji
+
 //Retrieve array from API response, handling both array and object formats
-function normalizeList(data, fallbackKeys = ['articles', 'items', 'data']) {
+function normalizeList(data, fallbackKeys = ["articles", "items", "data"]) {
   if (Array.isArray(data)) {
     return data;
   }
@@ -44,56 +51,64 @@ function normalizeList(data, fallbackKeys = ['articles', 'items', 'data']) {
 // Fetch knowledge base data
 async function fetchKnowledgeBase() {
   try {
-    const response = await fetch('/api/knowledge-base');
+    //const response = await fetch('/api/knowledge-base');
+    const response = await fetch(`${API_BASE_URL}/knowledge.json`);
     const data = await response.json();
     const items = normalizeList(data);
-    const grid = document.getElementById('knowledge-base-grid');
+    const grid = document.getElementById("knowledge-base-grid");
 
     if (items.length === 0) {
-      grid.innerHTML = '<p>Brak danych do wyświetlenia.</p>';
+      grid.innerHTML = "<p>Brak danych do wyświetlenia.</p>";
       return;
     }
 
-    grid.innerHTML = items.map(item => `
-      <article class="feed__item ${item.featured ? 'feed__item--featured' : ''}">
-      ${item.featured ? `<img src="${item.image}" alt="feed image" class="feed__image" onerror="this.src='./assets/images/baza-wiedzy.png'">` : ''}  
+    grid.innerHTML = items
+      .map(
+        (item) => `
+      <article class="feed__item ${item.featured ? "feed__item--featured" : ""}">
+      ${item.featured ? `<img src="${item.image}" alt="feed image" class="feed__image" onerror="this.src='./assets/images/baza-wiedzy.png'">` : ""}  
         <div class="feed__item-content">
             <p class="feed__item-type">${item.type}</p>
-            <h3 class="feed__item-title">${item.title}</h3>
+            <h3 class="feed__item-title"> <a href="${item.url}" target="#">${item.title}</a></h3>
         </div>
     </article>
-    `).join('');
+    `,
+      )
+      .join("");
   } catch (error) {
-    console.error('Błąd pobierania bazy wiedzy:', error);
+    console.error("Błąd pobierania bazy wiedzy:", error);
   }
 }
 
 // Fetch blog data
 async function fetchBlog() {
   try {
-    const response = await fetch('/api/blog');
+    const response = await fetch(`${API_BASE_URL}/blog.json`);
     const data = await response.json();
     const articles = normalizeList(data);
-    const list = document.getElementById('blog-list');
+    const list = document.getElementById("blog-list");
 
     if (articles.length === 0) {
-      list.innerHTML = '<p>Brak artykułów do wyświetlenia.</p>';
+      list.innerHTML = "<p>Brak artykułów do wyświetlenia.</p>";
       return;
     }
 
-    list.innerHTML = articles.map(article => `
+    list.innerHTML = articles
+      .map(
+        (article) => `
       <article class="feed__item">
       <div class="feed__item-meta"> <p>Data: ${article.date}</p> <p>czas czytania: ${Math.ceil(article.reading_time_seconds / 60)} min </p></div>
-        <h3 class="feed__item-title">${article.title}</h3>
+        <h3 class="feed__item-title"><a href="${article.url}" target="#">${article.title}</a></h3>
       </article>
-    `).join('');
+    `,
+      )
+      .join("");
   } catch (error) {
-    console.error('Błąd pobierania bloga:', error);
+    console.error("Błąd pobierania bloga:", error);
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   fetchKnowledgeBase();
   fetchBlog();
 });
-
