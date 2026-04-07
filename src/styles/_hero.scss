@@ -1,0 +1,29 @@
+@use "./colors" as *;
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  &__content {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+  }
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  &__image-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    opacity: 0;
+    animation: fade-in 0.6s ease-out forwards;
+  }
+  &__subtitle {
+    color: $grey-3;
+  }
+}

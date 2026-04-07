@@ -1,0 +1,357 @@
+// Typography variables and base font settings
+
+@use "./colors" as *;
+
+// PP Neue Montreal custom fonts
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("./assets/fonts/pp-neue-montreal/ppneuemontreal-thin.otf")
+    format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("./assets/fonts/pp-neue-montreal/ppneuemontreal-book.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("./assets/fonts/pp-neue-montreal/ppneuemontreal-medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("./assets/fonts/pp-neue-montreal/ppneuemontreal-bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("./assets/fonts/pp-neue-montreal/ppneuemontreal-italic.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("./assets/fonts/pp-neue-montreal/ppneuemontreal-semibolditalic.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+$font-family: "DM Sans", sans-serif;
+
+// Global typography defaults
+body {
+  font-family: $font-family;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+//Design system typography
+$display-xl-font-size: 48px;
+$display-xl-font-size-rem: 3rem;
+$display-xl-line-height: 60px;
+$display-xl-line-height-rem: 3.75rem;
+$display-xl-letter-spacing: -2%;
+
+// Display XL mixins
+@mixin display-xl {
+  font-size: $display-xl-font-size-rem;
+  line-height: $display-xl-line-height-rem;
+  letter-spacing: $display-xl-letter-spacing;
+  font-weight: 400;
+}
+
+@mixin display-xl-semibold {
+  font-size: $display-xl-font-size-rem;
+  line-height: $display-xl-line-height-rem;
+  letter-spacing: $display-xl-letter-spacing;
+  font-weight: 600;
+}
+
+@mixin display-xl-bold {
+  font-size: $display-xl-font-size-rem;
+  line-height: $display-xl-line-height-rem;
+  letter-spacing: $display-xl-letter-spacing;
+  font-weight: 700;
+}
+
+// Display LG
+$display-lg-font-size: 36px;
+$display-lg-font-size-rem: 2.25rem;
+$display-lg-line-height: 44px;
+$display-lg-line-height-rem: 2.75rem;
+$display-lg-letter-spacing: -2%;
+
+// Display LG mixins
+@mixin display-lg {
+  font-size: $display-lg-font-size-rem;
+  line-height: $display-lg-line-height-rem;
+  letter-spacing: $display-lg-letter-spacing;
+  font-weight: 400;
+}
+
+@mixin display-lg-semibold {
+  font-size: $display-lg-font-size-rem;
+  line-height: $display-lg-line-height-rem;
+  letter-spacing: $display-lg-letter-spacing;
+  font-weight: 600;
+}
+
+@mixin display-lg-bold {
+  font-size: $display-lg-font-size-rem;
+  line-height: $display-lg-line-height-rem;
+  letter-spacing: $display-lg-letter-spacing;
+  font-weight: 700;
+}
+
+// Display MD
+$display-md-font-size: 30px;
+$display-md-font-size-rem: 1.875rem;
+$display-md-line-height: 38px;
+$display-md-line-height-rem: 2.375rem;
+
+// Display MD mixins
+@mixin display-md {
+  font-size: $display-md-font-size-rem;
+  line-height: $display-md-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin display-md-semibold {
+  font-size: $display-md-font-size-rem;
+  line-height: $display-md-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin display-md-bold {
+  font-size: $display-md-font-size-rem;
+  line-height: $display-md-line-height-rem;
+  font-weight: 700;
+}
+
+// Display SM
+$display-sm-font-size: 24px;
+$display-sm-font-size-rem: 1.5rem;
+$display-sm-line-height: 32px;
+$display-sm-line-height-rem: 2rem;
+
+// Display SM mixins
+@mixin display-sm {
+  font-size: $display-sm-font-size-rem;
+  line-height: $display-sm-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin display-sm-semibold {
+  font-size: $display-sm-font-size-rem;
+  line-height: $display-sm-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin display-sm-bold {
+  font-size: $display-sm-font-size-rem;
+  line-height: $display-sm-line-height-rem;
+  font-weight: 700;
+}
+
+// Display XS
+$display-xs-font-size: 20px;
+$display-xs-font-size-rem: 1.25rem;
+$display-xs-line-height: 30px;
+$display-xs-line-height-rem: 1.875rem;
+
+// Display XS mixins
+@mixin display-xs {
+  font-size: $display-xs-font-size-rem;
+  line-height: $display-xs-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin display-xs-semibold {
+  font-size: $display-xs-font-size-rem;
+  line-height: $display-xs-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin display-xs-bold {
+  font-size: $display-xs-font-size-rem;
+  line-height: $display-xs-line-height-rem;
+  font-weight: 700;
+}
+
+// Text XL
+$text-xl-font-size: 18px;
+$text-xl-font-size-rem: 1.125rem;
+$text-xl-line-height: 28px;
+$text-xl-line-height-rem: 1.75rem;
+
+// Text XL mixins
+@mixin text-xl {
+  font-size: $text-xl-font-size-rem;
+  line-height: $text-xl-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin text-xl-semibold {
+  font-size: $text-xl-font-size-rem;
+  line-height: $text-xl-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin text-xl-bold {
+  font-size: $text-xl-font-size-rem;
+  line-height: $text-xl-line-height-rem;
+  font-weight: 700;
+}
+
+// Text LG
+$text-lg-font-size: 16px;
+$text-lg-font-size-rem: 1rem;
+$text-lg-line-height: 24px;
+$text-lg-line-height-rem: 1.5rem;
+
+// Text LG mixins
+@mixin text-lg {
+  font-size: $text-lg-font-size-rem;
+  line-height: $text-lg-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin text-lg-semibold {
+  font-size: $text-lg-font-size-rem;
+  line-height: $text-lg-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin text-lg-bold {
+  font-size: $text-lg-font-size-rem;
+  line-height: $text-lg-line-height-rem;
+  font-weight: 700;
+}
+
+// Text MD
+$text-md-font-size: 16px;
+$text-md-font-size-rem: 0.875rem;
+$text-md-line-height: 20px;
+$text-md-line-height-rem: 1.25rem;
+
+// Text MD mixins
+@mixin text-md {
+  font-size: $text-md-font-size-rem;
+  line-height: $text-md-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin text-md-semibold {
+  font-size: $text-md-font-size-rem;
+  line-height: $text-md-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin text-md-bold {
+  font-size: $text-md-font-size-rem;
+  line-height: $text-md-line-height-rem;
+  font-weight: 700;
+}
+
+// Text SM
+$text-sm-font-size: 12px;
+$text-sm-font-size-rem: 0.75rem;
+$text-sm-line-height: 18px;
+$text-sm-line-height-rem: 1.125rem;
+
+// Text SM mixins
+@mixin text-sm {
+  font-size: $text-sm-font-size-rem;
+  line-height: $text-sm-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin text-sm-semibold {
+  font-size: $text-sm-font-size-rem;
+  line-height: $text-sm-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin text-sm-bold {
+  font-size: $text-sm-font-size-rem;
+  line-height: $text-sm-line-height-rem;
+  font-weight: 700;
+}
+
+// Text XS
+$text-xs-font-size: 10px;
+$text-xs-font-size-rem: 0.625rem;
+$text-xs-line-height: 14px;
+$text-xs-line-height-rem: 0.875rem;
+
+// Text XS mixins
+@mixin text-xs {
+  font-size: $text-xs-font-size-rem;
+  line-height: $text-xs-line-height-rem;
+  font-weight: 400;
+}
+
+@mixin text-xs-semibold {
+  font-size: $text-xs-font-size-rem;
+  line-height: $text-xs-line-height-rem;
+  font-weight: 600;
+}
+
+@mixin text-xs-bold {
+  font-size: $text-xs-font-size-rem;
+  line-height: $text-xs-line-height-rem;
+  font-weight: 700;
+}
+
+// Heading styles
+h1 {
+  color: $grey-1;
+  @include display-lg;
+
+  span {
+    color: $dark-1;
+  }
+}
+
+h2 {
+  color: $dark-1;
+  @include display-lg-semibold;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 28px;
+    background-color: $primary;
+    transform: skew(-45deg);
+    margin-left: 14px;
+    margin-right: 24px;
+  }
+
+  &.light {
+    color: $text-light;
+  }
+}

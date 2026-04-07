@@ -1,0 +1,93 @@
+@use "./colors" as *;
+@use "./typography" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  opacity: 0;
+  animation: fade-in 0.6s ease-out forwards;
+
+  &__controls {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__control {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: $dark-1;
+    @include display-xs;
+
+    &--active {
+      border-bottom: 2px solid $dark-1;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 0;
+  grid-template: auto / 1fr 1fr 1fr;
+
+  .card {
+    padding: 40px;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0;
+    animation: fade-in 0.6s ease-out forwards;
+
+    &:hover {
+      background-color: $primary;
+
+      h3,
+      p {
+        color: $text-light;
+      }
+
+      h3:before {
+        background-image: url("./assets/images/benefit-icon-white.svg");
+      }
+    }
+
+    &__title {
+      color: $dark-1;
+      @include display-xs;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-image: url("./assets/images/benefit-icon.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-bottom: 32px;
+      }
+    }
+
+    &__text {
+      color: $grey-1;
+      @include text-md;
+    }
+  }
+}

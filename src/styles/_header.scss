@@ -1,0 +1,24 @@
+@use "./colors" as *;
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    
+    &__container {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: nowrap;
+        list-style-type: none;
+        gap: 16px;
+    }
+    &__link {
+        &:hover {
+            color: $primary;
+        }
+    }
+}

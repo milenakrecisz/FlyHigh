@@ -1,0 +1,89 @@
+@use "./colors" as *;
+@use "./typography" as *;
+
+.footer {
+  background-color: $dark-2;
+  color: $text-light;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 140px;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 50px;
+  }
+
+  .feed {
+    &__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &--featured {
+        flex-direction: row;
+
+        > div {
+          flex-direction: column;
+        }
+      }
+      &-content {
+        display: flex;
+        gap: 24px;
+      }
+      &-title {
+        color: $text-light;
+        font-family: "PP Neue Montreal", sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+      }
+
+      &-type {
+        background-color: $grey-5;
+        color: $tag;
+        font-family: "PP Neue Montreal", sans-serif;
+        font-size: 0.85rem;
+        padding: 7px 12px;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 50px;
+      }
+      &-meta {
+        display: flex;
+        justify-content: space-between;
+        color: $grey-2;
+        @include text-lg;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}

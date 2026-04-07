@@ -1,0 +1,115 @@
+@use "./colors" as *;
+
+// Buttons
+$button-border-radius: 50px;
+$button-padding-vertical: 0.75rem;
+$button-padding-horizontal: 2.125rem;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: $button-border-radius;
+  padding: $button-padding-vertical $button-padding-horizontal;
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: normal;
+  background-color: transparent;
+  color: $dark-1;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &--loading,
+  &.is-loading {
+    cursor: progress;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+}
+
+.button--primary,
+.button-primary {
+  background-color: $dark-2;
+  color: $text-light;
+  font-weight: normal;
+
+  &::before {
+    background-color: $primary;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &:focus-visible {
+    outline: $primary solid 4px;
+  }
+}
+
+.button--secondary,
+.button-secondary {
+  background-color: $text-light;
+  color: $dark-1;
+  border: 1px solid $secondary-button-border;
+
+  &::before {
+    background-color: $light-1;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &:focus-visible {
+    outline: $primary solid 4px;
+  }
+}
+
+.button--tertiary,
+.button-tertiary {
+  background-color: $light-2;
+  color: $dark-1;
+
+  &:hover {
+    background-color: $light-1;
+  }
+  &:focus-visible {
+    outline: $primary solid 4px;
+  }
+}
+
+.link {
+  background: none;
+  border: none;
+  color: $primary;
+  text-decoration: underline;
+  padding: 0;
+  font-weight: 600;
+
+  &:hover,
+  &:focus-visible {
+    outline: $primary solid 4px;
+  }
+}
