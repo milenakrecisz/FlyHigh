@@ -27,10 +27,9 @@
     background-color: transparent;
     border: none;
     padding: 0.5rem 1rem;
-    font-size: 1rem;
     cursor: pointer;
     color: $dark-1;
-    @include display-xs;
+    @include display-sm;
 
     &--active {
       border-bottom: 2px solid $dark-1;
@@ -71,7 +70,7 @@
 
     &__title {
       color: $dark-1;
-      @include display-xs;
+      @include display-sm;
 
       &:before {
         content: "";

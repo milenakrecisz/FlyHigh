@@ -327,6 +327,8 @@ $text-xs-line-height-rem: 0.875rem;
 h1 {
   color: $grey-1;
   @include display-lg;
+  font-size: 3.75rem;
+  line-height: 3.75rem;
 
   span {
     color: $dark-1;
@@ -336,6 +338,8 @@ h1 {
 h2 {
   color: $dark-1;
   @include display-lg-semibold;
+  font-size: 3rem;
+  line-height: 3.75rem;
   position: relative;
   display: inline-flex;
   align-items: center;
